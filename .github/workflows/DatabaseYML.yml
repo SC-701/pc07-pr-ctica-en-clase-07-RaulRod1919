@@ -42,6 +42,23 @@ jobs:
       - name: Setup NuGet
         uses: NuGet/setup-nuget@v1
 
+      - name: Create NuGet .Config with GitHub package credentials
+        run: |
+          $content = @"
+          <?xml version="1.0" encoding="utf-8"?>
+          <configuration>
+            <packageSources>
+              <add key="github" value="https://nuget.pkg.github.com/SC-701/index.json" />
+            </packageSources>
+            <packageSourcesCredentials>
+              <github>
+                <add key="Username" value="${{ github.actor }}" />
+                <add key="ClearTextPassword" value="${{ secrets.PaquetesTOKEN }}" />
+              </github>
+            </packageSourcesCredentials>
+          </configuration>
+          "@
+
       - name: Agregar paquetes source privado
         run: nuget sources add -name "paquetes" -Source "https://nuget.pkg.github.com/SC-701/index.json"
 
