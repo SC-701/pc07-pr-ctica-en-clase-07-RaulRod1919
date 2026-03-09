@@ -61,6 +61,8 @@ jobs:
             </packageSourcesCredentials>
           </configuration>
           "@
+          $content | Out-File -FilePath "Seguridad/Seguridad.API/NuGet.Config" -Encoding utf8
+        shell: powershell
 
       - name: Restore NuGet packages
         run: nuget restore "Seguridad/Seguridad.API/Seguridad.sln"
