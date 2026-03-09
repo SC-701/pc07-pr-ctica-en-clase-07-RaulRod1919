@@ -46,7 +46,7 @@ jobs:
       - name: Publicar paquetes en github
         run: |
           cd "Seguridad/Seguridad.MiddlewareAutorizacion"
-          dotnet nuget push Seguridad/Seguridad.MiddlewareAutorizacion/nupkgs/*.nupkg \
+          dotnet nuget push ./nupkgs/*.nupkg \
               --source "https://nuget.pkg.github.com/SC-701/index.json" \
               --api-key ${{ secrets.GITHUB_TOKEN }} \
               --skip-duplicate
