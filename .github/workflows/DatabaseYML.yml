@@ -61,6 +61,9 @@ jobs:
           $content | Out-File -FilePath "Seguridad/Seguridad.API/NuGet.Config" -Encoding utf8
         shell: powershell
 
+      - name: Agregar paquetes source privado
+        run: nuget sources add -name "paquetes" -Source "https://nuget.pkg.github.com/SC-701/index.json"
+
       - name: Restore NuGet packages
         run: nuget restore "Seguridad/Seguridad.API/Seguridad.sln"
 
