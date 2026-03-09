@@ -5,13 +5,15 @@ on:
     branches: [ main ]
     paths:
       - 'Seguridad/Seguridad.MiddlewareAutorizacion/**'
+  workflow_dispatch:
+
+permissions: 
+  contents: read
+  packages: write
 
 jobs:
-  publicar:
+  publish:
     runs-on: ubuntu-latest
-    permissions:
-      packages: write
-      contents: read
 
     steps:
       - uses: actions/checkout@v4
@@ -22,8 +24,9 @@ jobs:
           dotnet-version: '8.0'
 
       - name: Restaurar dependencias
-        working-directory: Seguridad/Seguridad.MiddlewareAutorizacion
-        run: dotnet restore
+        run: |
+          cd "Seguridad/Seguridad.MiddlewareAutorizacion" 
+          dotnet restore
 
       - name: Compilar en Release
         run: |
