@@ -49,7 +49,6 @@ jobs:
       - name: Publicar paquetes en github
         working-directory: Seguridad/Seguridad.MiddlewareAutorizacion
         run: |
-          cd "Seguridad/Seguridad.MiddlewareAutorizacion"
           find . -name "*.nupkg" | while read pkg; do
             dotnet nuget push "$pkg" \
               --api-key ${{ secrets.GITHUB_TOKEN }} \
