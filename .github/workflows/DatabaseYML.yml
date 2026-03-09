@@ -42,9 +42,6 @@ jobs:
       - name: Setup NuGet
         uses: NuGet/setup-nuget@v1
 
-      - name: Agregar paquetes source privado
-        run: nuget sources add -name "paquetes" -Source "https://nuget.pkg.github.com/SC-701/index.json"
-
       - name: Create NuGet .Config with GitHub package credentials
         run: |
           $content = @"
