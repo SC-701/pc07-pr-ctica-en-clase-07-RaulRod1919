@@ -62,7 +62,7 @@ jobs:
         shell: powershell
 
       - name: Restore NuGet packages
-        run: nuget restore "Seguridad/Seguridad.API/Seguridad.sln"
+        run: nuget restore "Seguridad/Seguridad.API/Seguridad.sln" -ConfigFile "Seguridad/Seguridad.API/NuGet.Config"
 
       - name: Build Database Project
         run: |
