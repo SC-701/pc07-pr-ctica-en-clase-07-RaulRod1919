@@ -52,7 +52,7 @@ jobs:
             </packageSources>
             <packageSourcesCredentials>
               <github>
-                <add key="Username" value="SC-701" />
+                <add key="Username" value="${{ github.actor }}" />
                 <add key="ClearTextPassword" value="${{ secrets.PAQUETESTOKEN }}" />
               </github>
             </packageSourcesCredentials>
