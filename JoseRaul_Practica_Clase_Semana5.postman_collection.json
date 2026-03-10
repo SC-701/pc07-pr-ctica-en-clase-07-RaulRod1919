@@ -1,0 +1,195 @@
+{
+  "info": {
+    "_postman_id": "273032ee-fa1b-41f1-a679-63e9083d62a5",
+    "name": "JoseRaul_Practica_Clase_Semana5",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "42536497"
+  },
+  "item": [
+    {
+      "name": "ObtenerTodos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://localhost:7011/api/Producto",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7011",
+          "path": [
+            "api",
+            "Producto"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Obtener",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://localhost:7011/api/Producto/f1dbb103-904f-4a25-b3e1-e6f64aaad7c6",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7011",
+          "path": [
+            "api",
+            "Producto",
+            "f1dbb103-904f-4a25-b3e1-e6f64aaad7c6"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Agregar",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"nombre\": \"Pan integral bimbo\",\r\n  \"descripcion\": \"Pan cuadrado\",\r\n  \"precio\": 1000,\r\n  \"stock\": 1000,\r\n  \"codigoBarras\": \"1111111111111\",\r\n  \"idSubCategoria\": \"377DDA9C-8E02-4792-AC98-54336FA73264\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://localhost:7011/api/Producto",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7011",
+          "path": [
+            "api",
+            "Producto"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Actualizar",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"nombre\": \"PRUEBA2\",\r\n  \"descripcion\": \"PRUEBA\",\r\n  \"precio\": 1500,\r\n  \"stock\": 100,\r\n  \"codigoBarras\": \"123w312313211\",\r\n  \"idSubCategoria\": \"377DDA9C-8E02-4792-AC98-54336FA73264\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://localhost:7011/api/Producto?Id=6347095d-6774-4623-82b7-e8bdf729b02b",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7011",
+          "path": [
+            "api",
+            "Producto"
+          ],
+          "query": [
+            {
+              "key": "Id",
+              "value": "6347095d-6774-4623-82b7-e8bdf729b02b"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Eliminar",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"nombre\": \"PRUEBA2\",\r\n  \"descripcion\": \"PRUEBA\",\r\n  \"precio\": 1500,\r\n  \"stock\": 100,\r\n  \"codigoBarras\": \"123w312313211\",\r\n  \"idSubCategoria\": \"377DDA9C-8E02-4792-AC98-54336FA73264\"\r\n}"
+        },
+        "url": {
+          "raw": "https://localhost:7011/api/Producto?Id=6347095d-6774-4623-82b7-e8bdf729b02b",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7011",
+          "path": [
+            "api",
+            "Producto"
+          ],
+          "query": [
+            {
+              "key": "Id",
+              "value": "6347095d-6774-4623-82b7-e8bdf729b02b"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "APIBancoCentral",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJCQ0NSLVNEREUiLCJzdWIiOiJqcm9kcmlndWV6NDA3NDRAdWZpZGUuYWMuY3IiLCJhdWQiOiJTRERFLVNpdGlvRXh0ZXJubyIsImV4cCI6MjUzNDAyMzAwODAwLCJuYmYiOjE3NzA2ODk5NjMsImlhdCI6MTc3MDY4OTk2MywianRpIjoiZTY4MjFlMzMtOGUyMy00NDIyLThjODItMGUxNTYwYjcwZTRjIiwiZW1haWwiOiJqcm9kcmlndWV6NDA3NDRAdWZpZGUuYWMuY3IifQ.4BGmSrN6QYMTLQaptCZ0RD12I5GL570x82mni1dpe2A",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://apim.bccr.fi.cr/SDDE/api/Bccr.GE.SDDE.Publico.Indicadores.API/cuadro/491/series?fechaInicio=2026/02/09&fechaFin=2026/02/09&idioma=ES",
+          "protocol": "https",
+          "host": [
+            "apim",
+            "bccr",
+            "fi",
+            "cr"
+          ],
+          "path": [
+            "SDDE",
+            "api",
+            "Bccr.GE.SDDE.Publico.Indicadores.API",
+            "cuadro",
+            "491",
+            "series"
+          ],
+          "query": [
+            {
+              "key": "fechaInicio",
+              "value": "2026/02/09"
+            },
+            {
+              "key": "fechaFin",
+              "value": "2026/02/09"
+            },
+            {
+              "key": "idioma",
+              "value": "ES"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
