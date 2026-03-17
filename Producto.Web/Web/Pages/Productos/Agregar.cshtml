@@ -1,0 +1,71 @@
+﻿@page
+@model Web.Pages.Productos.AgregarModel
+@{
+}
+
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header">
+            <h4 class="mb-0">Agregar Producto</h4>
+        </div>
+
+        <div class="card-body">
+            <form method="post">
+
+                <div class="mb-3">
+                    <label class="form-label">Nombre</label>
+                    <input asp-for="Producto.Nombre" class="form-control" />
+                    <span asp-validation-for="Producto.Nombre" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Descripción</label>
+                    <textarea asp-for="Producto.Descripcion" class="form-control"></textarea>
+                    <span asp-validation-for="Producto.Descripcion" class="text-danger"></span>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Precio</label>
+                        <input asp-for="Producto.Precio" class="form-control" />
+                        <span asp-validation-for="Producto.Precio" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Stock</label>
+                        <input asp-for="Producto.Stock" class="form-control" />
+                        <span asp-validation-for="Producto.Stock" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Código de Barras</label>
+                    <input asp-for="Producto.CodigoBarras" class="form-control" />
+                    <span asp-validation-for="Producto.CodigoBarras" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">SubCategoría</label>
+                    <select asp-for="Producto.IdSubCategoria" class="form-select">
+                        <option value="">Seleccione una subcategoría</option>
+                    </select>
+                    <span asp-validation-for="Producto.IdSubCategoria" class="text-danger"></span>
+                </div>
+
+                <div class="d-flex justify-content-end">
+                    <a asp-page="./Index" class="btn btn-secondary me-2">
+                        <i class="bi bi-arrow-left"></i> Volver
+                    </a>
+                    <button type="submit" class="btn btn-success">
+                        <i class="bi bi-check-circle"></i> Guardar
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

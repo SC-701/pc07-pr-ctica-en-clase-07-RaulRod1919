@@ -22,14 +22,14 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Agregar(ProductoRequest producto)
+        public async Task<IActionResult> Agregar([FromBody] ProductoRequest producto)
         {
             var respuesta = await _productoFlujo.Agregar(producto);
             return CreatedAtAction(nameof(Obtener), new {Id=respuesta});
         }
 
-        [HttpPut]
-        public async Task<IActionResult> Editar(Guid Id, ProductoRequest producto)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Editar([FromRoute]Guid Id, [FromBody] ProductoRequest producto)
         {
             if (!await VerificacionProductoExiste(Id))
                 return NotFound("No se encontro el producto");
@@ -37,8 +37,8 @@ namespace API.Controllers
             return Ok(respuesta);
         }
 
-        [HttpDelete]
-        public async Task<IActionResult> Eliminar(Guid Id)
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Eliminar([FromRoute]Guid Id)
         {
             if (!await VerificacionProductoExiste(Id))
                 return NotFound("No se encontro el producto");
@@ -56,7 +56,7 @@ namespace API.Controllers
         }
 
         [HttpGet("{Id}")]
-        public async Task<IActionResult> Obtener(Guid Id)
+        public async Task<IActionResult> Obtener([FromRoute] Guid Id)
         {
             if(!await VerificacionProductoExiste(Id))
                 return NotFound("No se encontro el producto");
