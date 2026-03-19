@@ -11,10 +11,10 @@ namespace DA
         private IRepositorioDapper _repositorioDapper;
         private SqlConnection _sqlConnection;
 
-        public CategoriaDA(IRepositorioDapper repositorioDapper)
+        public CategoriaDA(IRepositorioDapper repositorioDapper, SqlConnection sqlConnection)
         {
             _repositorioDapper = repositorioDapper;
-            _sqlConnection = _repositorioDapper.ObtenerRepositorio();
+            _sqlConnection = sqlConnection;
         }
 
         public async Task<Categoria> Obtener(Guid id)

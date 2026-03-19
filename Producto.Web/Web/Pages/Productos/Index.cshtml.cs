@@ -1,7 +1,8 @@
-using Abstracciones.Interfaces.Reglas;
-using Abstracciones.Modelos;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Abstracciones.Modelos;
+using Abstracciones.Interfaces.Reglas;
+using System.Threading.Tasks;
 using System.Text.Json;
 
 namespace Web.Pages.Productos
