@@ -23,6 +23,7 @@ namespace Abstracciones.Modelos
 
     public class ProductoRequest : ProductoBase
     {
+        [Required(ErrorMessage = "La propiedad de la subcategoría es requerida")]
         public Guid IdSubCategoria { get; set; }
     }
 

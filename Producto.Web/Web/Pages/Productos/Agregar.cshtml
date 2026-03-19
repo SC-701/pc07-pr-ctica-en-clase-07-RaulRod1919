@@ -45,9 +45,17 @@
                 </div>
 
                 <div class="mb-3">
+                    <label class="form-label">Categorias</label>
+                    <select name="Categoria" asp-items="Model.Categorias" id="Categoria" onchange="obtenerSubCategoria()" class="form-select">
+                        <option value="" hidden default>Seleccione una categoría</option>
+                    </select>
+                    <span asp-validation-for="Categorias" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
                     <label class="form-label">SubCategoría</label>
-                    <select asp-for="Producto.IdSubCategoria" class="form-select">
-                        <option value="">Seleccione una subcategoría</option>
+                    <select asp-for="Producto.IdSubCategoria" id="subCategorias" asp-items="Model.SubCategorias" class="form-select">
+                        <option value="" default hidden>Seleccione una subcategoría</option>
                     </select>
                     <span asp-validation-for="Producto.IdSubCategoria" class="text-danger"></span>
                 </div>
@@ -68,4 +76,26 @@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+    <script>
+        async function obtenerSubCategoria(){
+            const idCategoria = document.getElementById("Categoria").value;
+            if(!idCategoria){return;}
+            try{
+                const respuesta = await fetch(`?handler=ObtenerSubCategorias&idCategoria=${idCategoria}`)
+                const subCategorias = await respuesta.json();
+                const subCategoriasSelect = document.getElementById("subCategorias");
+                subCategoriasSelect.innerHTML = '<option value = "" hidden default>Seleccione una subcategoría</option>'
+                subCategorias.forEach(
+                    subCategoria => {
+                        const option = document.createElement("option");
+                        option.value = subCategoria.id;
+                        option.text = subCategoria.nombre;
+                        subCategoriasSelect.appendChild(option);
+                    }
+                );
+            }catch(error){
+                console.log('Error al obtener subcategorias', error);
+            }
+        }
+    </script>
 }
